@@ -1,5 +1,8 @@
 package dao;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.LinkedList;
 
@@ -27,6 +30,7 @@ public class LigneDAOJson extends DAOGenerique<Ligne> {
 		// TODO Auto-generated method stub
 		LinkedList<Ligne> lesLignes = findAll();
 		lesLignes.remove(obj);
+		saveAll(lesLignes);
 		return null;
 	}
 
@@ -35,6 +39,7 @@ public class LigneDAOJson extends DAOGenerique<Ligne> {
 		// TODO Auto-generated method stub
 		LinkedList<Ligne> lesLignes = findAll();
 		lesLignes.add(obj);
+		saveAll(lesLignes);
 		return obj;
 	}
 
@@ -44,13 +49,30 @@ public class LigneDAOJson extends DAOGenerique<Ligne> {
 		LinkedList<Ligne> lesLignes = findAll();
 		lesLignes.remove(obj.getID());
 		lesLignes.add(obj);
+		saveAll(lesLignes);
 		return null;
 	}
 
 	@Override
 	public void saveAll(LinkedList<Ligne> objs) {
 		// TODO Auto-generated method stub
+		connectjson.setJson(connectjson.getGson().toJson(objs));
 		
+		Writer writer = null;
+		try {
+			writer = new FileWriter("reseau.json");
+			writer.write(connectjson.getJson());
+		} catch(IOException e) {
+			System.out.println("Impossible d'écrire dans le fichier json " + e);
+		} finally {
+			if (writer != null) {
+				try {
+					writer.close();
+				} catch(IOException e) {
+					System.out.println("Erreur " + e);
+				}
+			}
+		}
 	}
 	
 	@Override

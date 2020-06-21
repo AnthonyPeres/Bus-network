@@ -8,7 +8,7 @@ public class JsonManager {
 
 	final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 	String json= "";
-	String fichierJson="banque.json";
+	String fichierJson="reseau.json";
 	
 	private static JsonManager instance=null;
 	
