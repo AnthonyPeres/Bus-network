@@ -1,6 +1,18 @@
 [
   {
     "id": 0,
-    "nom": "L1"
+    "nom": "L1",
+    "arrets": []
+  },
+  {
+    "id": 0,
+    "nom": "L1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "nommm",
+        "position": "rue albert"
+      }
+    ]
   }
 ]

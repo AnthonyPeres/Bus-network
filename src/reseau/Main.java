@@ -1,5 +1,7 @@
 package reseau;
 
+import java.util.LinkedList;
+
 import dao.*;
 import dao.DAOFactory.SourceDonnees;
 
@@ -20,6 +22,14 @@ public class Main {
 		arretDAO = daoFactory.getArretDAO();
 		
 		Ligne l1 = new Ligne("L1", null);
+		
+		Arret a1 = new Arret("nommm", "rue albert");
+		
+		LinkedList<Arret> arrets = new LinkedList<Arret>();
+		arrets.add(a1);
+		l1.setArrets(arrets);
+		
+		
 		ligneDAO.create(l1);
 		
 		
