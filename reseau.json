@@ -1,17 +1,48 @@
 [
   {
     "id": 0,
-    "nom": "L1",
-    "arrets": []
-  },
-  {
-    "id": 0,
-    "nom": "L1",
+    "nom": "Ligne 1",
     "arrets": [
       {
         "id": 0,
-        "nom": "nommm",
-        "position": "rue albert"
+        "nom": "A",
+        "position": ""
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": ""
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": ""
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": ""
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": ""
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": ""
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": ""
       }
     ]
   }

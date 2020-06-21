@@ -54,4 +54,13 @@ public class DAOFactory {
 		return null;
 	}
 	
+	public DAOGenerique<Bus> getBusDAO() {
+		switch(this._sourceDonnees) {
+			case Json :
+				return this._daoJsonFactory.getBusDAO();
+		
+		}
+		return null;
+	}
+	
 }

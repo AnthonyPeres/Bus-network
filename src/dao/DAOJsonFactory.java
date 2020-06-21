@@ -18,4 +18,8 @@ public class DAOJsonFactory {
 		return ArretDAOJson.getInstance();
 	}
 	
+	public DAOGenerique<Bus> getBusDAO() {
+		return BusDAOJson.getInstance();
+	}
+	
 }

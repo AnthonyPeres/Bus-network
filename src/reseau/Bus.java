@@ -3,9 +3,14 @@ package reseau;
 public class Bus extends Observable {
 
 	private EtatBus etatBus;
+	private int numero;
 	
 	public Bus() {
 		
+	}
+	
+	public Bus(int n) {
+		this.numero = n;
 	}
 	
 	public void setState(EtatBus newEtat) {
@@ -14,6 +19,14 @@ public class Bus extends Observable {
 	
 	public void action() {
 		etatBus.action(this);
+	}
+	
+	public int getNumero() {
+		return this.numero;
+	}
+	
+	public void setNumero(int n) {
+		this.numero = n;
 	}
 	
 	
@@ -28,5 +41,6 @@ public class Bus extends Observable {
 			}
 		}
 	}
+
 	
 }

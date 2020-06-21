@@ -10,7 +10,12 @@ public class Ligne {
 	private List<Arret> arrets;
 	
 	public Ligne() {
-		setArrets(new LinkedList<Arret>());
+		this.arrets = new LinkedList<Arret>();
+	}
+	
+	public Ligne(String nom) {
+		this.nom = nom;
+		this.arrets = new LinkedList<Arret>();
 	}
 	
 	public Ligne(String nom, LinkedList<Arret> arrets) {
@@ -32,6 +37,10 @@ public class Ligne {
 
 	public void setArrets(List<Arret> arrets) {
 		this.arrets = arrets;
+	}
+	
+	public void addArret(Arret arret) {
+		this.arrets.add(arret);
 	}
 
 	public int getID() {
