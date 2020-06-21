@@ -68,14 +68,14 @@ private static ArretDAOJson instance = null;
 	public LinkedList<Arret> findByName(String name) {
 		// TODO Auto-generated method stub
 		LinkedList<Arret> lesArrets = findAll();
-		LinkedList<Arret> lesArretsCorrespondant = new LinkedList<Arret>();
+		LinkedList<Arret> lesArretsCorrespondants = new LinkedList<Arret>();
 		
 		for (Arret a: lesArrets) {
 			if (a.getNom() == name) {
-				lesArretsCorrespondant.add(a);
+				lesArretsCorrespondants.add(a);
 			}
 		}
-		return lesArretsCorrespondant;
+		return lesArretsCorrespondants;
 	}
 
 	@Override

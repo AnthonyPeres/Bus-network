@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Ligne {
 
+	private int id;
 	private String nom;
 	private List<Arret> arrets;
 	
@@ -31,6 +32,11 @@ public class Ligne {
 
 	public void setArrets(List<Arret> arrets) {
 		this.arrets = arrets;
+	}
+
+	public int getID() {
+		// TODO Auto-generated method stub
+		return this.id;
 	}
 	
 }
