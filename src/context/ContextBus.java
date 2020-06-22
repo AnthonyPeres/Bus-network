@@ -1,41 +1,34 @@
 package context;
 
-import events.IEventsControleBus;
-
 public class ContextBus {
 
+	private EtatBus etat;
 	
-	private IEventsControleBus m_refCtrlBus;
-	private EtatBus m_possedeEtat;
-	
-	public ContextBus(IEventsControleBus referenceBus) {
-		// TODO Auto-generated constructor stub
-		m_refCtrlBus = referenceBus;
-		m_possedeEtat = new EtatDepot();
-	}
-
-	public IEventsControleBus getControlesBus() {
-		return m_refCtrlBus;
+	public ContextBus() {
+		this.etat = new EtatDepot();
 	}
 	
-	
-	public void changerEtat(EtatBus etat) {
-		m_possedeEtat = etat;
+	public void changerEtat(EtatBus e) {
+		this.etat = e;
 	}
 	
 	public void stopper() {
-		m_possedeEtat.stopper(this);
+		this.etat.stopper(this);
+		System.out.println("Le bus s'arrete.");
 	}
 	
 	public void demarrer() {
-		m_possedeEtat.demarrer(this);
+		this.etat.demarrer(this);
+		System.out.println("Le bus demarre.");
 	}
 	
 	public void sortirDepot() {
-		m_possedeEtat.sortirDepot(this);
+		this.etat.sortirDepot(this);
+		System.out.println("Le bus sort du depot.");
 	}
 	
 	public void retourDepot() {
-		m_possedeEtat.retourDepot(this);
+		this.etat.retourDepot(this);
+		System.out.println("Le bus retour au depot.");
 	}
 }

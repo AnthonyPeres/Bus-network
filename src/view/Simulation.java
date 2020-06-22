@@ -132,6 +132,7 @@ public class Simulation extends JFrame {
 		bus.demarrer();
 		bus.stopper();
 		bus.retourDepot();
+		System.out.println(bus.getEtat());
 		
 		Simulation frame = new Simulation(reseau);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

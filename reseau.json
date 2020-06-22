@@ -202,5 +202,413 @@
         }
       }
     ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "A",
+        "position": {
+          "x": 100,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": {
+          "x": 200,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": {
+          "x": 50,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": {
+          "x": 150,
+          "y": 200
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": {
+          "x": 250,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "A",
+        "position": {
+          "x": 100,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": {
+          "x": 200,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": {
+          "x": 50,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": {
+          "x": 150,
+          "y": 200
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": {
+          "x": 250,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "A",
+        "position": {
+          "x": 100,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": {
+          "x": 200,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": {
+          "x": 50,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": {
+          "x": 150,
+          "y": 200
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": {
+          "x": 250,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "A",
+        "position": {
+          "x": 100,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": {
+          "x": 200,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": {
+          "x": 50,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": {
+          "x": 150,
+          "y": 200
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": {
+          "x": 250,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "A",
+        "position": {
+          "x": 100,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": {
+          "x": 200,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": {
+          "x": 50,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": {
+          "x": 150,
+          "y": 200
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": {
+          "x": 250,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 1",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "A",
+        "position": {
+          "x": 100,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "B",
+        "position": {
+          "x": 200,
+          "y": 20
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "D",
+        "position": {
+          "x": 50,
+          "y": 200
+        }
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "nom": "Ligne 2",
+    "arrets": [
+      {
+        "id": 0,
+        "nom": "E",
+        "position": {
+          "x": 150,
+          "y": 200
+        }
+      },
+      {
+        "id": 0,
+        "nom": "C",
+        "position": {
+          "x": 300,
+          "y": 100
+        }
+      },
+      {
+        "id": 0,
+        "nom": "F",
+        "position": {
+          "x": 250,
+          "y": 200
+        }
+      }
+    ]
   }
 ]
