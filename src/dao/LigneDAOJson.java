@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 import com.google.gson.reflect.TypeToken;
 
-import reseau.*;
+import modele.Ligne;
 
 public class LigneDAOJson extends DAOGenerique<Ligne> {
 

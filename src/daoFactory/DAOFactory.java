@@ -1,7 +1,9 @@
 package daoFactory;
 
 import dao.DAOGenerique;
-import reseau.*;
+import modele.Arret;
+import modele.Bus;
+import modele.Ligne;
 
 
 public class DAOFactory {

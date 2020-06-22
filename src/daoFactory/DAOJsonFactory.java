@@ -4,7 +4,9 @@ import dao.ArretDAOJson;
 import dao.BusDAOJson;
 import dao.DAOGenerique;
 import dao.LigneDAOJson;
-import reseau.*;
+import modele.Arret;
+import modele.Bus;
+import modele.Ligne;
 
 public class DAOJsonFactory {
 	

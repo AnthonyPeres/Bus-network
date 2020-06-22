@@ -1,9 +1,10 @@
 package dao;
 
 import java.util.LinkedList;
-import reseau.*;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
+
+import modele.Arret;
 
 public class ArretDAOJson extends DAOGenerique<Arret> {
 	
