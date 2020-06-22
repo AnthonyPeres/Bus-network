@@ -101,17 +101,19 @@ public class Simulation extends JFrame {
   	public static void main(String[] args) {
 
   		/* Les bus */
-  		Bus b1 = new Bus(1);
-		Bus b2 = new Bus(2);
-		Bus b3 = new Bus(3);
+  		Bus b1, b2, b3;
+  		b1 = new Bus(1);
+		b2 = new Bus(2);
+		b3 = new Bus(3);
 		
 		/* Les arrets */
-		Arret a1 = new Arret("A", new Position(100, 20));
-		Arret a2 = new Arret("B", new Position(200, 20));
-		Arret a3 = new Arret("C", new Position(300, 100));
-		Arret a4 = new Arret("D", new Position(50, 200));
-		Arret a5 = new Arret("E", new Position(150, 200));
-		Arret a6 = new Arret("F", new Position(250, 200));
+		Arret a1, a2, a3, a4, a5, a6;
+		a1 = new Arret("A", new Position(100, 20));
+		a2 = new Arret("B", new Position(200, 20));
+		a3 = new Arret("C", new Position(300, 100));
+		a4 = new Arret("D", new Position(50, 200));
+		a5 = new Arret("E", new Position(150, 200));
+		a6 = new Arret("F", new Position(250, 200));
 		
 		/* Les lignes */
 		Ligne l1 = new Ligne("Ligne 1");

@@ -6,7 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/anthony/Desktop/Projet Conception avancée des SI/Libraries/gson-2.8.6.jar"/>
-	<classpathentry kind="lib" path="/Users/anthony/Desktop/Projet Conception avancée des SI/Libraries/jgraphx-master/lib/jgraphx.jar"/>
+	<classpathentry kind="lib" path="/Users/anthony/Desktop/Projet Conception avancée des SI/ReseauBus/libraries/gson-2.8.6.jar"/>
+	<classpathentry kind="lib" path="/Users/anthony/Desktop/Projet Conception avancée des SI/ReseauBus/libraries/jgraphx.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,24 +4,49 @@ import java.util.LinkedList;
 
 public class Ligne {
 
+	/* Variables */
 	private int id;
 	private String nom;
 	private LinkedList<Arret> arrets;
+	private LinkedList<Bus> lesbus;
 	
+	
+	/* Constructeurs */
 	public Ligne() {
 		this.arrets = new LinkedList<Arret>();
+		this.lesbus = new LinkedList<Bus>();
 	}
 	
 	public Ligne(String nom) {
 		this.nom = nom;
 		this.arrets = new LinkedList<Arret>();
+		this.lesbus = new LinkedList<Bus>();
 	}
 	
 	public Ligne(String nom, LinkedList<Arret> arrets) {
 		this.nom = nom;
 		this.arrets = arrets;
+		this.lesbus = new LinkedList<Bus>();
 	}
 
+	
+	/* Fonctions */
+	public void addArret(Arret arret) {
+		this.arrets.add(arret);
+	}
+	
+	public void addBus(Bus b) {
+		this.lesbus.add(b);
+		b.setArret(getPremierArret());
+	}
+	
+	
+	/* Accesseurs - Mutateurs */
+	public int getID() {
+		// TODO Auto-generated method stub
+		return this.id;
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -36,15 +61,6 @@ public class Ligne {
 
 	public void setArrets(LinkedList<Arret> arrets) {
 		this.arrets = arrets;
-	}
-	
-	public void addArret(Arret arret) {
-		this.arrets.add(arret);
-	}
-
-	public int getID() {
-		// TODO Auto-generated method stub
-		return this.id;
 	}
 	
 	public Arret getPremierArret() {
@@ -71,5 +87,4 @@ public class Ligne {
 		}
 		return null;
 	}
-	
 }

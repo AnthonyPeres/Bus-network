@@ -6,11 +6,14 @@ import observer.Observable;
 
 public class Bus extends Observable {
 	
+	public enum Etat { ARRET, DEPLACEMENT, DEPOT };
+	
 	/* Variables */
 	private int numero;
 	private ContextBus m_contexte;
-	public enum Etat { ARRET, DEPLACEMENT, DEPOT };
-	public Etat etatCourant;
+	private Arret arretCourant;
+	private Etat etatCourant;
+	
 	
 	/* Constructeur */
 	public Bus(int n) {
@@ -19,10 +22,8 @@ public class Bus extends Observable {
 		m_contexte = new ContextBus();
 	}
 	
-	public Etat getEtat() {
-		return this.etatCourant;
-	}
 	
+	/* Changement d'état */
 	public void stopper() {
 		this.etatCourant = Etat.ARRET;
 		m_contexte.stopper();
@@ -52,6 +53,16 @@ public class Bus extends Observable {
 	public void setNumero(int n) {
 		this.numero = n;
 	}
-
 	
+	public Arret getArret() {
+		return this.arretCourant;
+	}
+	
+	public void setArret(Arret a) {
+		this.arretCourant = a;
+	}
+	
+	public Etat getEtat() {
+		return this.etatCourant;
+	}
 }

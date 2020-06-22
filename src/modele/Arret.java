@@ -4,10 +4,13 @@ import utilitaire.Position;
 
 public class Arret {
 
+	/* Variables */
 	private int id;
 	private String nom;
 	private Position position;
 	
+	
+	/* Constructeurs */
 	public Arret() {
 		
 	}
@@ -17,6 +20,12 @@ public class Arret {
 		this.position = position;
 	}
 
+	
+	/* Accesseurs - Mutateurs */
+	public int getID() {
+		return this.id;
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -31,11 +40,5 @@ public class Arret {
 
 	public void setPosition(Position position) {
 		this.position = position;
-	}
-
-	public int getID() {
-		// TODO Auto-generated method stub
-		return this.id;
-	}
-	
+	}	
 }

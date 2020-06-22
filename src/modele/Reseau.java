@@ -73,7 +73,7 @@ public class Reseau implements Observateur {
 	public void ajouterBusLigne(Bus b, Ligne l) {
 		if (this.lesbus.contains(b)) {
 			if (this.lignes.contains(l)) {
-				
+				l.addBus(b);
 			}
 		}
 	}
