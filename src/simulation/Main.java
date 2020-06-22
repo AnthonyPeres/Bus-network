@@ -1,11 +1,18 @@
-package reseau;
+package simulation;
 
+import java.awt.EventQueue;
 import java.util.LinkedList;
 import javax.swing.JFrame;
 
 
 import dao.*;
 import daoFactory.DAOFactory.SourceDonnees;
+import reseau.Arret;
+import reseau.Bus;
+import reseau.Ligne;
+import reseau.Position;
+import reseau.Reseau;
+import view.InterfaceGraphique;
 
 public class Main {
 
@@ -44,18 +51,6 @@ public class Main {
 	    frame.setSize(1200, 800);
 	    frame.setVisible(true);
 		 
-	    
-	    // Dans cette boucle on fait avancer les bus et on rafraichit l'affichage
-	    while(true) {
-	    	
-	    	// On fait avancer les bus
-	    	for (Bus b: reseau.getBus()) {
-	    		b.run();
-	    	}
-	    	
-	    	
-	    	
-	    }
 	}
 
 }
