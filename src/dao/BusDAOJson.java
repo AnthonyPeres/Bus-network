@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 import com.google.gson.reflect.TypeToken;
 
-import modele.Arret;
 import modele.Bus;
 
 public class BusDAOJson extends DAOGenerique<Bus> {

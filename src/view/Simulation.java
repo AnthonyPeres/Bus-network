@@ -98,15 +98,14 @@ public class Simulation extends JFrame {
 	    getContentPane().add(graphComponent);
   	}
   	
-  	
   	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+  		/* Les bus */
+  		Bus b1 = new Bus(1);
+		Bus b2 = new Bus(2);
+		Bus b3 = new Bus(3);
 		
-		reseau = new Reseau();
-		
-		Ligne l1 = new Ligne("Ligne 1");
-		Ligne l2 = new Ligne("Ligne 2");
-		
+		/* Les arrets */
 		Arret a1 = new Arret("A", new Position(100, 20));
 		Arret a2 = new Arret("B", new Position(200, 20));
 		Arret a3 = new Arret("C", new Position(300, 100));
@@ -114,33 +113,28 @@ public class Simulation extends JFrame {
 		Arret a5 = new Arret("E", new Position(150, 200));
 		Arret a6 = new Arret("F", new Position(250, 200));
 		
-		
+		/* Les lignes */
+		Ligne l1 = new Ligne("Ligne 1");
 		l1.addArret(a1);
 		l1.addArret(a2);
 		l1.addArret(a3);
 		l1.addArret(a4);
 		
+		Ligne l2 = new Ligne("Ligne 2");
 		l2.addArret(a5);
 		l2.addArret(a3);
 		l2.addArret(a6);
 		
+		/* Le réseau */
+		reseau = new Reseau();
 		reseau.addLigne(l1);
 		reseau.addLigne(l2);
-		
-		Bus bus = new Bus(9);
-		bus.sortirDepot();
-		bus.demarrer();
-		bus.stopper();
-		bus.retourDepot();
-		System.out.println(bus.getEtat());
-		
-		Simulation frame = new Simulation(reseau);
-	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    frame.setSize(1200, 800);
-	    frame.setVisible(true);
-		 
+				
+		/* La simulation */
+		Simulation simulation = new Simulation(reseau);
+		simulation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		simulation.setSize(1200, 800);
+		simulation.setVisible(true);
+	    
 	}
-  	
-  	
-  	
 }

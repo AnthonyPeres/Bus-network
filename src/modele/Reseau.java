@@ -42,6 +42,11 @@ public class Reseau implements Observateur {
 		return ligneDao.create(l);
 	}
 	
+	public Ligne removeLigne(Ligne l) {
+		lignes.remove(l);
+		return ligneDao.delete(l);
+	}
+	
 	public LinkedList<Ligne> getLignes() {
 		if (ligneDao.findAll() == null) {
 			return null;
