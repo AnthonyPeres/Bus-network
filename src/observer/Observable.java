@@ -1,4 +1,4 @@
-package reseau;
+package observer;
 
 import java.util.Iterator;
 import java.util.LinkedList;

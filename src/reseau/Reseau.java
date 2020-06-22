@@ -2,8 +2,10 @@ package reseau;
 
 import java.util.LinkedList;
 
-import dao.DAOFactory.SourceDonnees;
+import observer.Observateur;
 import dao.*;
+import daoFactory.DAOFactory;
+import daoFactory.DAOFactory.SourceDonnees;
 
 public class Reseau implements Observateur {
 	
@@ -52,8 +54,4 @@ public class Reseau implements Observateur {
 		}
 		return busDao.findAll();
 	}
-	
-	
-	
-	
 }

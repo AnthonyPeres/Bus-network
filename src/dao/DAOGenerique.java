@@ -2,6 +2,8 @@ package dao;
 
 import java.util.LinkedList;
 
+import dataSourceManagement.JsonManager;
+
 public abstract class DAOGenerique<T> {
 
 	public JsonManager connectjson = JsonManager.getInstance();

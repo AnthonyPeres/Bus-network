@@ -1,5 +1,9 @@
-package dao;
+package daoFactory;
 
+import dao.ArretDAOJson;
+import dao.BusDAOJson;
+import dao.DAOGenerique;
+import dao.LigneDAOJson;
 import reseau.*;
 
 public class DAOJsonFactory {

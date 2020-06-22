@@ -12,6 +12,17 @@ import com.mxgraph.view.mxGraph;
  
 public class InterfaceGraphique extends JFrame {
  
+	
+	/* Integrer cette JFRAME A une view
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * */
+	
+	
 	/** Pour éviter un warning venant du JFrame */
 	private static final long serialVersionUID = -8123406571694511514L;
  
@@ -25,52 +36,34 @@ public class InterfaceGraphique extends JFrame {
 	    
 	    try {
 	    	
-	    	ArrayList<Object> objets = new ArrayList<Object>();
-	    	ArrayList<Arret> arrets = new ArrayList<Arret>();
-	    	int position_x = 20;
-	    	int position_y = 20;
+	    	ArrayList<Object> objets;
+
 	    	int indice = 0;
 	    	
 	    	for (Ligne l: reseau.getLignes()) {
 	    		
-	    		
-	    		indice = 0;
+	    		objets = new ArrayList<Object>();
 	    		
 	    		for (Arret a: l.getArrets()) {
 	    			
+    				// On place l'arret
+	    			objets.add(graph.insertVertex(parent, null, a.getNom(), a.getPosition().getPositionX(), a.getPosition().getPositionY(), 40, 15));
 	    			
-	    			// On test si on a déjà l'arret
-	    			boolean deja = false;
-	    			int i = 0;
-	    			for (Arret tmp : arrets) {
-	    				if (a.getNom().contentEquals(tmp.getNom())) {
-	    					deja = true;
-	    					graph.insertEdge(parent, null, l.getNom(), objets.get(indice - 1), objets.get(i));
-	    				}
-	    				i++;
+	    			
+	    			// Si il y en a des déjà placé, on le relie
+	    			if (indice >= 1) {
+	    				
+	    				// SI IL Y A UN BUS SUR LA LIGNE ET ENTRE CES DEUX ARRETS, ON MET LE NOM DU BUS DESSUS
+	    				// EXEMPLE FICTIF
+	    				String nomBus = "Bus 1";
+	    				graph.insertEdge(parent, null, nomBus, objets.get(indice -1), objets.get(indice));
 	    			}
 	    			
-	    			if (deja == false) {
-	    				// On place l'arret
-		    			arrets.add(a);
-		    			objets.add(graph.insertVertex(parent, null, a.getNom(), position_x, position_y, 80, 30));
-		    			
-		    			// Si il y en a des déjà placé, on le relie
-		    			if (indice > 1) {
-		    				graph.insertEdge(parent, null, l.getNom(), objets.get(indice -1), objets.get(indice));
-		    			}
-		    			
-		    			indice++;
-	    			}
+	    			indice++;
 	    			
-	    			
-	    			position_x += 200;
 	    		}
-	    		position_y += 200;
-	    		position_x = 20;
-	    		
+	    		indice = 0;
 	    	}
-	    	
 	    } finally {
 	    	graph.getModel().endUpdate();
 	    }

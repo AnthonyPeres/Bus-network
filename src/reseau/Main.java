@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 
 import dao.*;
-import dao.DAOFactory.SourceDonnees;
+import daoFactory.DAOFactory.SourceDonnees;
 
 public class Main {
 
@@ -19,12 +19,12 @@ public class Main {
 		Ligne l1 = new Ligne("Ligne 1");
 		Ligne l2 = new Ligne("Ligne 2");
 		
-		Arret a1 = new Arret("A", "");
-		Arret a2 = new Arret("B", "");
-		Arret a3 = new Arret("C", "");
-		Arret a4 = new Arret("D", "");
-		Arret a5 = new Arret("E", "");
-		Arret a6 = new Arret("F", "");
+		Arret a1 = new Arret("A", new Position(100, 20));
+		Arret a2 = new Arret("B", new Position(200, 20));
+		Arret a3 = new Arret("C", new Position(300, 100));
+		Arret a4 = new Arret("D", new Position(50, 200));
+		Arret a5 = new Arret("E", new Position(150, 200));
+		Arret a6 = new Arret("F", new Position(250, 200));
 		
 		
 		l1.addArret(a1);
@@ -44,6 +44,18 @@ public class Main {
 	    frame.setSize(1200, 800);
 	    frame.setVisible(true);
 		 
+	    
+	    // Dans cette boucle on fait avancer les bus et on rafraichit l'affichage
+	    while(true) {
+	    	
+	    	// On fait avancer les bus
+	    	for (Bus b: reseau.getBus()) {
+	    		b.run();
+	    	}
+	    	
+	    	
+	    	
+	    }
 	}
 
 }

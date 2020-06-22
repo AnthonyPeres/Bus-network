@@ -1,13 +1,12 @@
 package reseau;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class Ligne {
 
 	private int id;
 	private String nom;
-	private List<Arret> arrets;
+	private LinkedList<Arret> arrets;
 	
 	public Ligne() {
 		this.arrets = new LinkedList<Arret>();
@@ -31,11 +30,11 @@ public class Ligne {
 		this.nom = nom;
 	}
 
-	public List<Arret> getArrets() {
+	public LinkedList<Arret> getArrets() {
 		return arrets;
 	}
 
-	public void setArrets(List<Arret> arrets) {
+	public void setArrets(LinkedList<Arret> arrets) {
 		this.arrets = arrets;
 	}
 	
@@ -46,6 +45,31 @@ public class Ligne {
 	public int getID() {
 		// TODO Auto-generated method stub
 		return this.id;
+	}
+	
+	public Arret getPremierArret() {
+		if (!this.arrets.isEmpty()) {
+			return this.arrets.getFirst();
+		}
+		return null;
+	}
+	
+	public Arret getArretSuivant(Arret precedant) {
+		if (!precedant.getNom().contentEquals(getTerminus().getNom())) {
+			for (int i = 0; i < this.arrets.size(); i++) {
+				if (this.arrets.get(i).getNom().contentEquals(precedant.getNom())) {
+					return this.arrets.get(i+1);
+				}
+			}
+		} 
+		return null;
+	}
+	
+	public Arret getTerminus() {
+		if (!this.arrets.isEmpty()) {
+			return this.arrets.getLast();
+		}
+		return null;
 	}
 	
 }

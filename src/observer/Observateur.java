@@ -1,4 +1,4 @@
-package reseau;
+package observer;
 
 public interface Observateur {
 

@@ -4,13 +4,13 @@ public class Arret {
 
 	private int id;
 	private String nom;
-	private String position;
+	private Position position;
 	
 	public Arret() {
 		
 	}
 	
-	public Arret(String nom, String position) {
+	public Arret(String nom, Position position) {
 		this.nom = nom;
 		this.position = position;
 	}
@@ -23,11 +23,11 @@ public class Arret {
 		this.nom = nom;
 	}
 
-	public String getPosition() {
+	public Position getPosition() {
 		return position;
 	}
 
-	public void setPosition(String position) {
+	public void setPosition(Position position) {
 		this.position = position;
 	}
 
