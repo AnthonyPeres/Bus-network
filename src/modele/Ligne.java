@@ -8,59 +8,20 @@ public class Ligne {
 	private int id;
 	private String nom;
 	private LinkedList<Arret> arrets;
-	private LinkedList<Bus> lesbus;
+	private LinkedList<Integer> trajets;
 	
-	
-	/* Constructeurs */
-	public Ligne() {
-		this.arrets = new LinkedList<Arret>();
-		this.lesbus = new LinkedList<Bus>();
-	}
-	
+	/* Constructeur */
 	public Ligne(String nom) {
+		this.id = Reseau.getInstance().getNbLigne() + 1;
 		this.nom = nom;
 		this.arrets = new LinkedList<Arret>();
-		this.lesbus = new LinkedList<Bus>();
-	}
-	
-	public Ligne(String nom, LinkedList<Arret> arrets) {
-		this.nom = nom;
-		this.arrets = arrets;
-		this.lesbus = new LinkedList<Bus>();
+		this.trajets = new LinkedList<Integer>();
 	}
 
 	
 	/* Fonctions */
 	public void addArret(Arret arret) {
 		this.arrets.add(arret);
-	}
-	
-	public void addBus(Bus b) {
-		this.lesbus.add(b);
-		b.setArret(getPremierArret());
-	}
-	
-	
-	/* Accesseurs - Mutateurs */
-	public int getID() {
-		// TODO Auto-generated method stub
-		return this.id;
-	}
-	
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public LinkedList<Arret> getArrets() {
-		return arrets;
-	}
-
-	public void setArrets(LinkedList<Arret> arrets) {
-		this.arrets = arrets;
 	}
 	
 	public Arret getPremierArret() {
@@ -86,5 +47,36 @@ public class Ligne {
 			return this.arrets.getLast();
 		}
 		return null;
+	}
+	
+	
+	/* Accesseurs - Mutateurs */
+	public int getID() {
+		return this.id;
+	}
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public LinkedList<Arret> getArrets() {
+		return arrets;
+	}
+
+	
+	public void setArrets(LinkedList<Arret> arrets) {
+		this.arrets = arrets;
+	}
+	
+	public LinkedList<Integer> getTrajets() {
+		return this.trajets;
+	}
+	
+	public void setTrajets(LinkedList<Integer> trajets) {
+		this.trajets = trajets;
 	}
 }

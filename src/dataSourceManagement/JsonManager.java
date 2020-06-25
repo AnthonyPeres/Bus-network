@@ -1,8 +1,14 @@
 package dataSourceManagement;
 
 import java.io.*;
+import java.lang.reflect.Type;
+import java.util.LinkedList;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import modele.Ligne;
 
 public class JsonManager {
 
@@ -54,5 +60,4 @@ public class JsonManager {
 	public Gson getGson() {
 		return this.gson;
 	}
-		
 }

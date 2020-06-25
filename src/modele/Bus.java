@@ -2,45 +2,64 @@ package modele;
 
 import context.ContextBus;
 import observer.Observable;
-
+import utilitaire.ConditionsCirculation;
 
 public class Bus extends Observable {
 	
-	public enum Etat { ARRET, DEPLACEMENT, DEPOT };
-	
 	/* Variables */
 	private int numero;
-	private ContextBus m_contexte;
+	private transient ContextBus m_contexte = new ContextBus();
 	private Arret arretCourant;
-	private Etat etatCourant;
-	
-	
+		
 	/* Constructeur */
 	public Bus(int n) {
 		this.numero = n;	
-		this.etatCourant = Etat.DEPOT;
-		m_contexte = new ContextBus();
 	}
 	
+	/* Fonction de deplacement */
+	public void run(Ligne l) {
+		Runnable run = () -> {
+			this.sortirDepot();
+			
+			while (true) {
+				
+				for (int i = 0; i < l.getArrets().size(); i++) {
+					
+					// On roule jusqu'à l'arret suivant
+					this.demarrer();
+					try {
+						Thread.sleep(l.getTrajets().get(i) * ConditionsCirculation.getTempsRoute());
+					} catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					// On s'arrete à l'arret
+					this.stopper();
+					try {
+						Thread.sleep(ConditionsCirculation.getTempsArret());
+					} catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		new Thread(run).start();
+	}
 	
 	/* Changement d'état */
 	public void stopper() {
-		this.etatCourant = Etat.ARRET;
 		m_contexte.stopper();
 	}
 	
 	public void demarrer() {
-		this.etatCourant = Etat.DEPLACEMENT;
 		m_contexte.demarrer();
 	}
 	
 	public void retourDepot() {
-		this.etatCourant = Etat.DEPOT;
 		m_contexte.retourDepot();;
 	}
 	
 	public void sortirDepot() {
-		this.etatCourant = Etat.ARRET;
 		m_contexte.sortirDepot();
 	}
 	
@@ -60,9 +79,5 @@ public class Bus extends Observable {
 	
 	public void setArret(Arret a) {
 		this.arretCourant = a;
-	}
-	
-	public Etat getEtat() {
-		return this.etatCourant;
 	}
 }

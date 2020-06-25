@@ -2,11 +2,9 @@ package context;
 
 public class ContextBus {
 
-	private EtatBus etat;
+	private EtatBus etat = new EtatDepot();
 	
-	public ContextBus() {
-		this.etat = new EtatDepot();
-	}
+	public ContextBus() {}
 	
 	public void changerEtat(EtatBus e) {
 		this.etat = e;

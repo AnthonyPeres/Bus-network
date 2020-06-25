@@ -11,11 +11,8 @@ public class Arret {
 	
 	
 	/* Constructeurs */
-	public Arret() {
-		
-	}
-	
 	public Arret(String nom, Position position) {
+		this.id = Reseau.getInstance().getNbArrets() + 1;
 		this.nom = nom;
 		this.position = position;
 	}

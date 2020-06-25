@@ -4,15 +4,10 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.mxgraph.model.mxCell;
-import com.mxgraph.model.mxGeometry;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
 
@@ -30,6 +25,10 @@ public class Simulation extends JFrame {
 	
 	/* Variables */
 	private static Reseau reseau;
+	
+	private static final int MENU_H = 50;
+	private static final int FENETRE_L = 1200;
+	private static final int FENETRE_H = 800;
  
 	/* Constructeur */
   	public Simulation(Reseau reseau) {
@@ -38,7 +37,7 @@ public class Simulation extends JFrame {
 	    /* La partie menu */
 	    JPanel menu = new JPanel();
 	    menu.setBackground(SystemColor.inactiveCaption);
-	    menu.setBounds(0, 0, 1200, 50);
+	    menu.setBounds(0, 0, FENETRE_L, MENU_H);
 	    getContentPane().add(menu);
 	    menu.setLayout(null);
 	    
@@ -72,16 +71,13 @@ public class Simulation extends JFrame {
 	    		for (Arret a: l.getArrets()) {
 	    			
     				// On place l'arret
-	    			objets.add(graph.insertVertex(parent, null, a.getNom(), a.getPosition().getPositionX(), a.getPosition().getPositionY(), 40, 15));
+	    			objets.add(graph.insertVertex(parent, null, a.getNom(), a.getPosition().getPositionX(), (MENU_H + a.getPosition().getPositionY()), 40, 15));
 	    			
 	    			
 	    			// Si il y en a des déjà placé, on le relie
 	    			if (indice >= 1) {
 	    				
-	    				// SI IL Y A UN BUS SUR LA LIGNE ET ENTRE CES DEUX ARRETS, ON MET LE NOM DU BUS DESSUS
-	    				// EXEMPLE FICTIF
-	    				String nomBus = "Bus 1";
-	    				graph.insertEdge(parent, null, nomBus, objets.get(indice -1), objets.get(indice));
+	    				graph.insertEdge(parent, null, reseau.getBusLigne(l, a), objets.get(indice -1), objets.get(indice));
 	    			}
 	    			
 	    			indice++;
@@ -94,13 +90,44 @@ public class Simulation extends JFrame {
 	    }
 	 
 	    mxGraphComponent graphComponent = new mxGraphComponent(graph);
-	    graphComponent.setBounds(0, 50, 1200, 750);
+	    graphComponent.setBounds(0, MENU_H, FENETRE_L, (FENETRE_H - MENU_H));
 	    getContentPane().add(graphComponent);
   	}
   	
+  	
+  	
+  	/* Main */
   	public static void main(String[] args) {
 
-  		/* Les bus */
+  		/* On crée le réseau */
+  		reseau = initReseau();
+  				
+  		for (Ligne l: reseau.getLignes()) {
+  			for (Bus b: reseau.getBus()) {
+  				b.sortirDepot();
+  			}
+  		}
+  		
+  		for (Ligne l: reseau.getLignes()) {
+  			for (Bus b: reseau.getBus()) {
+  				b.run(l);
+  			}
+  		}
+  		
+		/* La simulation */
+		Simulation simulation = new Simulation(reseau);
+		simulation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		simulation.setSize(FENETRE_L, FENETRE_H);
+		simulation.setVisible(true);
+	    
+	}
+
+
+  	/* Création du réseau. */
+	private static Reseau initReseau() {
+		Reseau r = new Reseau();
+		
+		/* Les bus */
   		Bus b1, b2, b3;
   		b1 = new Bus(1);
 		b2 = new Bus(2);
@@ -116,27 +143,24 @@ public class Simulation extends JFrame {
 		a6 = new Arret("F", new Position(250, 200));
 		
 		/* Les lignes */
-		Ligne l1 = new Ligne("Ligne 1");
+		Ligne l1, l2;
+		l1 = new Ligne("Ligne 1");
+		l2 = new Ligne("Ligne 2");
 		l1.addArret(a1);
 		l1.addArret(a2);
 		l1.addArret(a3);
 		l1.addArret(a4);
-		
-		Ligne l2 = new Ligne("Ligne 2");
 		l2.addArret(a5);
 		l2.addArret(a3);
 		l2.addArret(a6);
+		r.addBus(b1);
+		r.addBus(b2);
+		r.addBus(b3);
 		
 		/* Le réseau */
-		reseau = new Reseau();
-		reseau.addLigne(l1);
-		reseau.addLigne(l2);
-				
-		/* La simulation */
-		Simulation simulation = new Simulation(reseau);
-		simulation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		simulation.setSize(1200, 800);
-		simulation.setVisible(true);
-	    
+		r.addLigne(l1);
+		r.addLigne(l2);
+		
+		return r;
 	}
 }

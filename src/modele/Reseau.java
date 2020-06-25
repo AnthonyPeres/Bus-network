@@ -17,9 +17,11 @@ public class Reseau implements Observateur {
 	/* Instance */
 	private static Reseau instance = null;
 	
+	/* Variables */
 	protected LinkedList<Ligne> lignes = new LinkedList<Ligne>();
 	protected LinkedList<Bus> lesbus = new LinkedList<Bus>();
 	
+	/* Constructeur */
 	public Reseau() {
 		this.daoFactory = new DAOFactory(SourceDonnees.Json);
 		this.ligneDao = daoFactory.getLigneDAO();
@@ -33,18 +35,20 @@ public class Reseau implements Observateur {
 		return instance;
 	}
 	
+	/* Observer */
 	public void notifier() {
 		System.out.println("Le réseau a été notifié");
 	}
 	
+	/* Fonctions */
 	public Ligne addLigne(Ligne l) {
 		lignes.add(l);
 		return ligneDao.create(l);
 	}
 	
-	public Ligne removeLigne(Ligne l) {
+	public void removeLigne(Ligne l) {
 		lignes.remove(l);
-		return ligneDao.delete(l);
+		ligneDao.delete(l);
 	}
 	
 	public LinkedList<Ligne> getLignes() {
@@ -54,27 +58,46 @@ public class Reseau implements Observateur {
 		return ligneDao.findAll();
 	}
 	
-	public LinkedList<Bus> getBus() {
-		if (busDao.findAll() == null) {
-			return null;
-		}
-		return busDao.findAll();
-	}
+
 	
-	public Bus creerBus() {
-		return new Bus((this.lesbus.size() + 1));
-	}
-	
-	public Bus ajouterBusDepot(Bus b) {
+	public Bus addBus(Bus b) {
 		this.lesbus.add(b);
 		return busDao.create(b);
 	}
-	
-	public void ajouterBusLigne(Bus b, Ligne l) {
-		if (this.lesbus.contains(b)) {
-			if (this.lignes.contains(l)) {
-				l.addBus(b);
-			}
+
+	public String getBusLigne(Ligne l, Arret a) {
+		for (Bus b: lesbus) {
+			if (b.getArret() != null) {
+				if (b.getArret().getNom().contentEquals(a.getNom())) {
+					return "Bus" + String.valueOf(b.getNumero());
+				}
+			}	
 		}
+		return null;
 	}
+
+	public LinkedList<Bus> getBus() {
+		return this.lesbus;
+	}
+	
+	
+	public void placer(Bus b1, Ligne l1) {
+		b1.setArret(l1.getPremierArret());
+	}
+
+	public int getNbLigne() {
+		return this.lignes.size();
+	}
+	
+	public int getNbArrets() {
+		int nbArrets = 0;
+		
+		for (Ligne l: this.lignes) {
+			nbArrets += l.getArrets().size();
+		}
+		
+		return nbArrets;
+	}
+	
+	
 }
