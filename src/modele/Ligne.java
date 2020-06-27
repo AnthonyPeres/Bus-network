@@ -22,6 +22,7 @@ public class Ligne {
 	/* Fonctions */
 	public void addArret(Arret arret) {
 		this.arrets.add(arret);
+		this.trajets.add(100);
 	}
 	
 	public Arret getPremierArret() {

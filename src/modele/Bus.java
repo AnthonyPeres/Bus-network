@@ -10,6 +10,7 @@ public class Bus extends Observable {
 	private int numero;
 	private transient ContextBus m_contexte = new ContextBus();
 	private Arret arretCourant;
+	private Ligne ligne;
 		
 	/* Constructeur */
 	public Bus(int n) {
@@ -17,18 +18,18 @@ public class Bus extends Observable {
 	}
 	
 	/* Fonction de deplacement */
-	public void run(Ligne l) {
+	public void run() {
 		Runnable run = () -> {
 			this.sortirDepot();
 			
 			while (true) {
 				
-				for (int i = 0; i < l.getArrets().size(); i++) {
+				for (int i = 0; i < this.ligne.getArrets().size(); i++) {
 					
 					// On roule jusqu'à l'arret suivant
 					this.demarrer();
 					try {
-						Thread.sleep(l.getTrajets().get(i) * ConditionsCirculation.getTempsRoute());
+						Thread.sleep(this.ligne.getTrajets().get(i) * ConditionsCirculation.getTempsRoute());
 					} catch(InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -79,5 +80,15 @@ public class Bus extends Observable {
 	
 	public void setArret(Arret a) {
 		this.arretCourant = a;
+	}
+
+	public void setLigne(Ligne l) {
+		// TODO Auto-generated method stub
+		this.ligne = l;
+		this.arretCourant = l.getPremierArret();
+	}
+	
+	public Ligne getLigne() {
+		return this.ligne;
 	}
 }

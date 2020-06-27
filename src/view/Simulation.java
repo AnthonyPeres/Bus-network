@@ -70,14 +70,10 @@ public class Simulation extends JFrame {
 	    		
 	    		for (Arret a: l.getArrets()) {
 	    			
-    				// On place l'arret
-	    			objets.add(graph.insertVertex(parent, null, a.getNom(), a.getPosition().getPositionX(), (MENU_H + a.getPosition().getPositionY()), 40, 15));
+    				objets.add(graph.insertVertex(parent, null, a.getNom(), a.getPosition().getPositionX(), (MENU_H + a.getPosition().getPositionY()), 40, 15));
 	    			
-	    			
-	    			// Si il y en a des déjà placé, on le relie
 	    			if (indice >= 1) {
-	    				
-	    				graph.insertEdge(parent, null, reseau.getBusLigne(l, a), objets.get(indice -1), objets.get(indice));
+	    				graph.insertEdge(parent, null, null, objets.get(indice -1), objets.get(indice));
 	    			}
 	    			
 	    			indice++;
@@ -101,20 +97,18 @@ public class Simulation extends JFrame {
 
   		/* On crée le réseau */
   		reseau = initReseau();
-  				
-  		for (Ligne l: reseau.getLignes()) {
-  			for (Bus b: reseau.getBus()) {
-  				b.sortirDepot();
-  			}
+  		
+  		/* On fait sortir les bus du dépot */
+  		for (Bus b: reseau.getBus()) {
+  			b.sortirDepot();
   		}
   		
-  		for (Ligne l: reseau.getLignes()) {
-  			for (Bus b: reseau.getBus()) {
-  				b.run(l);
-  			}
+  		/* On active la fonction run pour chaque bus. Celle-ci active un Thread. */
+  		for (Bus b: reseau.getBus()) {
+  				b.run();
   		}
   		
-		/* La simulation */
+		/* On lance l'affichage, celui-ci devrait être rafraichit en meme temps que la fonction run. */
 		Simulation simulation = new Simulation(reseau);
 		simulation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		simulation.setSize(FENETRE_L, FENETRE_H);
@@ -153,13 +147,14 @@ public class Simulation extends JFrame {
 		l2.addArret(a5);
 		l2.addArret(a3);
 		l2.addArret(a6);
-		r.addBus(b1);
-		r.addBus(b2);
-		r.addBus(b3);
 		
 		/* Le réseau */
 		r.addLigne(l1);
 		r.addLigne(l2);
+		r.addBus(b1);
+		r.addBus(b2);
+		r.addBus(b3);
+		
 		
 		return r;
 	}

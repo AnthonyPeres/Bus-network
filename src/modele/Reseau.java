@@ -58,33 +58,17 @@ public class Reseau implements Observateur {
 		return ligneDao.findAll();
 	}
 	
-
-	
 	public Bus addBus(Bus b) {
+		int nombreAleatoire = 0 + (int)(Math.random() * ((this.getNbLigne()-1 - 0) + 1));
+		b.setLigne(this.lignes.get(nombreAleatoire));
 		this.lesbus.add(b);
 		return busDao.create(b);
-	}
-
-	public String getBusLigne(Ligne l, Arret a) {
-		for (Bus b: lesbus) {
-			if (b.getArret() != null) {
-				if (b.getArret().getNom().contentEquals(a.getNom())) {
-					return "Bus" + String.valueOf(b.getNumero());
-				}
-			}	
-		}
-		return null;
 	}
 
 	public LinkedList<Bus> getBus() {
 		return this.lesbus;
 	}
 	
-	
-	public void placer(Bus b1, Ligne l1) {
-		b1.setArret(l1.getPremierArret());
-	}
-
 	public int getNbLigne() {
 		return this.lignes.size();
 	}
@@ -95,7 +79,6 @@ public class Reseau implements Observateur {
 		for (Ligne l: this.lignes) {
 			nbArrets += l.getArrets().size();
 		}
-		
 		return nbArrets;
 	}
 	
