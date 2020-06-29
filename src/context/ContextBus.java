@@ -27,6 +27,6 @@ public class ContextBus {
 	
 	public void retourDepot() {
 		this.etat.retourDepot(this);
-		System.out.println("Le bus retour au depot.");
+		System.out.println("Le bus est de retour au depot.");
 	}
 }

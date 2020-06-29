@@ -36,7 +36,7 @@ public class Reseau implements Observateur {
 	}
 	
 	/* Observer */
-	public void notifier() {
+	public void update() {
 		System.out.println("Le réseau a été notifié");
 	}
 	
@@ -58,9 +58,8 @@ public class Reseau implements Observateur {
 		return ligneDao.findAll();
 	}
 	
-	public Bus addBus(Bus b) {
-		int nombreAleatoire = 0 + (int)(Math.random() * ((this.getNbLigne()-1 - 0) + 1));
-		b.setLigne(this.lignes.get(nombreAleatoire));
+	public Bus addBus(Bus b, Ligne ligne) {
+		b.setLigne(ligne);
 		this.lesbus.add(b);
 		return busDao.create(b);
 	}

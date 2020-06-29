@@ -35,6 +35,12 @@ public class Arret {
 		return position;
 	}
 
+	@Override
+	public String toString() {
+		return "Arret [id=" + id + ", nom=" + nom + ", position=" + position + "]";
+	}
+
+
 	public void setPosition(Position position) {
 		this.position = position;
 	}	

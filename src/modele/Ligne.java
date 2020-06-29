@@ -32,6 +32,12 @@ public class Ligne {
 		return null;
 	}
 	
+	@Override
+	public String toString() {
+		return "Ligne [id=" + id + ", nom=" + nom + ", arrets=" + arrets + ", trajets=" + trajets + "]";
+	}
+
+
 	public Arret getArretSuivant(Arret precedant) {
 		if (!precedant.getNom().contentEquals(getTerminus().getNom())) {
 			for (int i = 0; i < this.arrets.size(); i++) {
